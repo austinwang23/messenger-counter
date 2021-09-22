@@ -1,5 +1,10 @@
 import { readdir } from 'fs/promises';
+//SET INBOX FOLDER PATH
 const path = './inbox';
+
+//SET MINIMUM NUMBER OF MESSAGES
+const minMsgs = 5000;
+
 function checkCall(message) {
   return message.type === 'Call';
 }
@@ -31,7 +36,7 @@ async function gett() {
             }
           }
         }
-        if(numFiles>1){
+        if(numMsgs > minMsgs){
           var h = Math.floor(seconds / 3600);
           var m = Math.floor((seconds % 3600) / 60);
           var s = Math.floor((seconds % 3600) % 60);
